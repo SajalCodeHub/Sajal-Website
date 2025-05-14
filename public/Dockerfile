@@ -1,11 +1,11 @@
-# Use official PHP + Apache image
 FROM php:8.2-apache
 
-# Enable Apache mod_rewrite
 RUN a2enmod rewrite
 
-# Copy project files to Apache server root
-COPY . /var/www/html/
+# Optional: Suppress Apache hostname warning
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
-# Set permissions
+# Serve your public folder
+COPY public/ /var/www/html/
+
 RUN chown -R www-data:www-data /var/www/html
