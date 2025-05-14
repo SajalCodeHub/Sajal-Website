@@ -22,64 +22,65 @@
   </ul>
   
 
-  <!-- Hero Section -->
-  <section class="hero-banner">
-    <h1>🚀 My Portfolio</h1>
-    <p>Explore the magic I've built — AI apps, real-time platforms, and polished frontend tools.</p>
-  </section>
-
-  <!-- Portfolio Grid -->
-  <section id="portfolio-grid">
-
-    <!-- MagicSheets -->
-    <div class="portfolio-item" data-aos="fade-up">
-      <img src="magicsheets.jpg" alt="MagicSheets.AI">
-      <div class="item-content">
+  <section class="portfolio-section">
+    <h2 class="portfolio-heading">🚀 My Portfolio</h2>
+    <p class="portfolio-subheading">Explore the magic I’ve built — AI apps, real-time platforms, and polished frontend tools.</p>
+  
+    <div class="portfolio-grid">
+      <!-- MagicSheets.AI -->
+      <div class="portfolio-card">
+        <div class="portfolio-image placeholder-logo">M</div>
         <h3>MagicSheets.AI</h3>
-        <p>Personalized AI-generated worksheets for educators and students in seconds.</p>
-        <ul>
-          <li>📄 Worksheet generator</li>
-          <li>🌍 Multi-language support</li>
+        <p class="project-description">
+          Personalized AI-generated worksheets for educators and students in seconds.<br>
+          📚 Built by <strong>Sajal Bhattarai</strong> & <strong>Donnoban Maldonado</strong><br>
+          🎓 Class Project: System Design and Implementation (2025)
+        </p>
+        <ul class="feature-list">
+          <li>📝 Worksheet generator</li>
           <li>🔐 Authentication + dashboard</li>
           <li>📥 Download with answers</li>
+          <li>🗃️ Version history tracking</li>
+          <li>🌍 Public worksheet library with filters</li>
+          <li>🔁 Regeneration with refined prompts</li>
         </ul>
-        <a href="https://www.magicsheetsai.com" target="_blank" class="project-link">🌐 Visit MagicSheets</a>
+        <a href="https://www.magicsheetsai.com" class="portfolio-button" target="_blank">🌐 Visit MagicSheets</a>
       </div>
-    </div>
-
-    <!-- Smart To-Do App -->
-    <div class="portfolio-item" data-aos="fade-up" data-aos-delay="100">
-      <img src="todo-app.jpg" alt="Smart To-Do App">
-      <div class="item-content">
+  
+      <!-- Smart To-Do -->
+      <div class="portfolio-card inactive">
+        <div class="portfolio-image placeholder-logo">TODO</div>
         <h3>Smart To-Do</h3>
-        <p>Responsive productivity app for managing daily tasks, reminders, and goals.</p>
-        <ul>
+        <p class="project-description">
+          Responsive productivity app for managing daily tasks, reminders, and goals.
+        </p>
+        <ul class="feature-list">
           <li>✅ Task creation & tracking</li>
-          <li>📅 Calendar planning</li>
+          <li>🗓️ Calendar planning</li>
           <li>🌙 Dark mode</li>
           <li>📊 Insights dashboard</li>
         </ul>
-        <a href="#" class="project-link">🔗 Preview</a>
+        <button onclick="alert('🚧 Smart To-Do is under construction. Sajal is working hard on it!')" class="portfolio-button inactive">👷 Coming Soon</button>
       </div>
-    </div>
-
-    <!-- MagicChat -->
-    <div class="portfolio-item" data-aos="fade-up" data-aos-delay="200">
-      <img src="magicchat.jpg" alt="MagicChat Web App">
-      <div class="item-content">
+  
+      <!-- MagicChat -->
+      <div class="portfolio-card inactive">
+        <div class="portfolio-image placeholder-logo">MC</div>
         <h3>MagicChat</h3>
-        <p>Real-time chat platform with WebRTC calls, group messaging, and rich UI.</p>
-        <ul>
+        <p class="project-description">
+          Real-time chat platform with WebRTC calls, group messaging, and rich UI.
+        </p>
+        <ul class="feature-list">
           <li>💬 Live messaging (Socket.io)</li>
           <li>🎥 WebRTC video/audio</li>
           <li>🛡️ JWT auth system</li>
           <li>👥 Group chats + avatars</li>
         </ul>
-        <a href="#" class="project-link">🔗 Demo</a>
+        <button onclick="alert('💡 MagicChat is still in progress. Stay tuned!')" class="portfolio-button inactive">🚧 In Development</button>
       </div>
     </div>
-
   </section>
+  
 
   <!-- Footer -->
   <footer>

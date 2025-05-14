@@ -30,14 +30,13 @@ function showToast(message, type = "success") {
   document.body.appendChild(toast);
 
   setTimeout(() => toast.classList.add("visible"), 100);
-
   setTimeout(() => {
     toast.classList.remove("visible");
     toast.addEventListener("transitionend", () => toast.remove());
   }, 4000);
 }
 
-// ✉️ Hire Form Submission with Spinner
+// ✉️ Hire Form Submission with Spinner + reCAPTCHA
 const form = document.querySelector(".hire-form");
 
 form?.addEventListener("submit", async (e) => {
@@ -46,35 +45,50 @@ form?.addEventListener("submit", async (e) => {
   const name = form.elements["name"].value.trim();
   const email = form.elements["email"].value.trim();
   const specialization = form.elements["specialization"].value.trim() || "N/A";
-  const message = form.elements["project"].value.trim();
-  const type = form.elements["collabType"].value || "General";
-  const time = new Date().toLocaleString();
+  const project = form.elements["project"].value.trim();
+  const collabType = form.elements["collabType"].value || "General";
+  const recaptchaToken = grecaptcha.getResponse();
 
   const button = form.querySelector("button");
-  button.disabled = true;
   const originalText = button.innerText;
-
-  // Add spinner
+  button.disabled = true;
   button.innerHTML = `<span class="spinner"></span> Sending...`;
 
-  try {
-    await emailjs.send("service_qhnq5jb", "template_aej0mbq", {
-      name,
-      email,
-      specialization,
-      message,
-      type,
-      time
-    }, "6mbHxvGgypO2zAq7k");
+  if (!recaptchaToken) {
+    showToast("❌ Please complete the reCAPTCHA to verify you're human.", "error");
+    button.disabled = false;
+    button.innerText = originalText;
+    return;
+  }
 
-    showToast("✅ Proposal sent! I’ll be in touch shortly.", "success");
-    form.reset();
-    button.innerText = "Send Proposal 💌";
+  const formData = new FormData();
+  formData.append("name", name);
+  formData.append("email", email);
+  formData.append("specialization", specialization);
+  formData.append("project", project);
+  formData.append("collabType", collabType);
+  formData.append("g-recaptcha-response", recaptchaToken);
+
+  try {
+    const response = await fetch("sendmailer.php", {
+      method: "POST",
+      body: formData,
+    });
+
+    const result = await response.json();
+
+    if (result.success) {
+      showToast("✅ " + result.message, "success");
+      form.reset();
+      grecaptcha.reset();
+    } else {
+      showToast("❌ " + result.message, "error");
+    }
   } catch (err) {
-    console.error("EmailJS Error:", err);
-    showToast("❌ Oops! Something went wrong. Please try again.", "error");
-    button.innerText = "Try Again 💌";
+    console.error("Fetch Error:", err);
+    showToast("❌ Network error. Please try again.", "error");
   }
 
   button.disabled = false;
+  button.innerText = originalText;
 });

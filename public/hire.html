@@ -6,7 +6,7 @@
   <title>Hire Me | Sajal</title>
   <link rel="stylesheet" href="hireme.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/all.min.css" />
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 </head>
 <body>
@@ -78,30 +78,47 @@
     <h2>Let's Collaborate</h2>
     <p>Tell me about your project — and let’s co-create magic! 🪄</p>
     <form class="hire-form" method="POST">
-      <input type="text" name="name" placeholder="Your Full Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <input type="text" name="specialization" placeholder="Your Specialization (e.g. Brand, Startup, AI)" required />
-      <textarea name="project" placeholder="What is your project or idea?" rows="6" required></textarea>
-      <select name="collabType" required>
+      <input type="text" name="name" placeholder="Your Full Name" aria-label="Full Name" required />
+      <input type="email" name="email" placeholder="Your Email" aria-label="Email" required />
+      <input type="text" name="specialization" placeholder="Your Specialization (e.g. Brand, Startup, AI)" aria-label="Specialization" required />
+      <textarea name="project" placeholder="What is your project or idea?" rows="6" aria-label="Project Details" required></textarea>
+      <select name="collabType" aria-label="Collaboration Type" required>
         <option value="">Type of Collaboration</option>
         <option value="paid">Paid Project</option>
         <option value="open">Open Source</option>
         <option value="creative">Creative Idea</option>
       </select>
+
+      <!-- ✅ reCAPTCHA widget -->
+      <div class="g-recaptcha" data-sitekey="6Ld2FDkrAAAAAHCDvkJhkjGu4k-Z4Ky7Y4_MSbuF"></div>
+
       <button type="submit">Send Proposal 💌</button>
+
+      <!-- ✅ Success/Error Message Placeholder -->
+      <p class="form-message" id="form-message"></p>
     </form>
   </section>
 
   <!-- Footer -->
-  <footer class="footer">
+  <footer class="main-footer">
     <p>&copy; 2025 <span class="sajal-name">Sajal Bhattarai</span> | All rights reserved.</p>
+    <div class="social-icons">
+      <a href="https://www.linkedin.com/in/sajal-bhattarai-912347216/" target="_blank" class="icon linkedin" aria-label="LinkedIn">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+      <a href="https://www.instagram.com/thegreat_7/" target="_blank" class="icon instagram" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.facebook.com/profile.php?id=100093601611709" target="_blank" class="icon facebook" aria-label="Facebook">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </div>
   </footer>
 
   <!-- Scripts -->
-  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>AOS.init({ duration: 1000, once: true });</script>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <script src="hire.js"></script>
-  <script src="js/contact.js"></script>
 </body>
 </html>
