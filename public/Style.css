@@ -967,13 +967,14 @@ body.dark-mode #contact p {
   z-index: 1001;
 }
 
+
 @media (max-width: 768px) {
   .hamburger {
     display: block;
   }
 
   .nav-links {
-    display: none; /* ✅ Hidden by default */
+    display: none !important; /* hide by default */
     flex-direction: column;
     gap: 10px;
     background: #1e1e2f;
@@ -983,13 +984,13 @@ body.dark-mode #contact p {
   }
 
   .nav-links.active {
-    display: flex; /* ✅ Shown only when toggled */
+    display: flex !important; /* show only when .active */
   }
 
   .nav-links li {
     width: 100%;
-    text-align: center;
   }
 }
+
 
 
