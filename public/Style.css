@@ -155,7 +155,7 @@ body {
 }
 
 .hero-section {
-    padding-top: 100px;
+    padding-top: 160px;
     position: relative;
     display: flex;
     justify-content: center;
@@ -967,14 +967,13 @@ body.dark-mode #contact p {
   z-index: 1001;
 }
 
-/* Mobile Menu Styles */
 @media (max-width: 768px) {
   .hamburger {
     display: block;
   }
 
   .nav-links {
-    display: none;
+    display: none; /* ✅ Hidden by default */
     flex-direction: column;
     gap: 10px;
     background: #1e1e2f;
@@ -984,11 +983,13 @@ body.dark-mode #contact p {
   }
 
   .nav-links.active {
-    display: flex;
+    display: flex; /* ✅ Shown only when toggled */
   }
 
   .nav-links li {
     width: 100%;
+    text-align: center;
   }
 }
+
 
