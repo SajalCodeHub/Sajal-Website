@@ -9,6 +9,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 document.getElementById(targetId).scrollIntoView({
                     behavior: "smooth"
                 });
+
+                // 🔐 Close menu on mobile after click
+                document.getElementById("nav-links")?.classList.remove("active");
             }
         });
     });
@@ -20,6 +23,13 @@ document.addEventListener("DOMContentLoaded", () => {
         let scrollTop = window.scrollY;
         navbar.style.top = scrollTop > lastScrollTop ? "-80px" : "0";
         lastScrollTop = scrollTop;
+    });
+
+    // 📱 Hamburger Menu Toggle
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("nav-links");
+    hamburger?.addEventListener("click", () => {
+        navLinks?.classList.toggle("active");
     });
 
     // ✨ Active Link Highlighting
@@ -150,16 +160,6 @@ document.addEventListener("DOMContentLoaded", () => {
             clearInterval(interval);
         }
     }, 50);
-
-    // 📱 Mobile Menu
-    const menuButton = document.createElement("button");
-    menuButton.classList.add("menu-button");
-    menuButton.innerHTML = "☰";
-    navbar.appendChild(menuButton);
-
-    menuButton.addEventListener("click", () => {
-        navbar.classList.toggle("expanded");
-    });
 
     // 🔮 Navbar Hover Glow & Easter Egg
     const styleSheet = document.createElement("style");
