@@ -46,13 +46,63 @@ Deployment:
 /Dockerfile ← PHP server setup for Render
 /redeploy.txt ← Used to trigger manual redeploy on Render
 
+## 🛠️ Installation Instructions (Run Locally)
 
-## 🖥 Hosting Details
+### Prerequisites:
+- PHP installed on your machine (PHP 7.4 or higher)
+- A local server (e.g., XAMPP)
+- Internet connection (for reCAPTCHA)
+
+### Steps:
+
+1. **Clone the Repository**
+
+```bash
+git clone https://github.com/SajalCodeHub/Sajal-Website.git
+cd Sajal-Website
+
+Move Files to Your Local Server Directory**
+
+For XAMPP:
+
+Copy the entire folder into htdocs (e.g., C:/xampp/htdocs/Sajal-Website)
+
+Start Apache Server
+
+Open XAMPP and start Apache.
+
+Configure PHPMailer
+
+Edit send-email.php and update the following:
+$mail->Host = 'smtp.example.com';      // Your SMTP host
+$mail->Username = 'your@email.com';    // Your email
+$mail->Password = 'yourpassword';      // Your email password or app key
+$mail->setFrom('your@email.com');
+$mail->addAddress('your@email.com');   // Where the message should be sent
+
+Set Up reCAPTCHA
+
+Go to Google reCAPTCHA
+
+Register your site and get the site key and secret key
+
+Replace those in your form and backend logic
+
+Access the Site Locally
+http://localhost/Sajal-Website/public/index.html
+
+If using PHP for the form:
+http://localhost/Sajal-Website/public/hire.html
+
+
+
+🌐 Hosting Details
 
 The site is hosted on Render using a dynamic web service configured for PHP. The GitHub repository is linked to Render for continuous deployment. A custom domain (`sajalbhattarai.com`) is connected with full DNS configuration and HTTPS enabled.
 
-## 📬 Contact
+ 📬 Contact
+You can test the contact form locally once PHPMailer and reCAPTCHA are properly configured. Messages will be sent directly to your configured email address.
 
-Visitors can use the "Hire Me" section to submit proposals or send messages securely. The form collects name, email, and message, and is protected from bots using Google reCAPTCHA.
+
 
 
