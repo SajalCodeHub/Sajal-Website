@@ -1,8 +1,8 @@
-# 🌐 Personal Portfolio Website – sajalbhattarai.com
+# Personal Portfolio Website – sajalbhattarai.com
 
 This is my personal portfolio website, built to showcase my background, skills, and projects. The site features a modern and responsive design with animations and interactive components. It includes a contact form that uses PHPMailer and reCAPTCHA for secure email submission.
 
-## 🔧 Technology Stack
+##  Technology Stack
 
 Frontend:
 - HTML5
@@ -19,7 +19,7 @@ Deployment:
 - Render (for hosting a dynamic PHP web service)
 - Custom Domain: sajalbhattarai.com (with HTTPS via Render)
 
-## 🚀 Features
+##  Features
 
 - Fully responsive design for desktop and mobile
 - Glowing sticky navbar with smooth scroll effect
@@ -96,11 +96,11 @@ http://localhost/Sajal-Website/public/hire.html
 
 
 
-🌐 Hosting Details
+Hosting Details
 
 The site is hosted on Render using a dynamic web service configured for PHP. The GitHub repository is linked to Render for continuous deployment. A custom domain (`sajalbhattarai.com`) is connected with full DNS configuration and HTTPS enabled.
 
- 📬 Contact
+  Contact
 You can test the contact form locally once PHPMailer and reCAPTCHA are properly configured. Messages will be sent directly to your configured email address.
 
 
